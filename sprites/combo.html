@@ -1,0 +1,54 @@
+<!doctype html>
+
+<!-- This is a simple, bare-bones canvas web page template.
+     Its sole purpose is to save you a little typing when
+     starting up a new web page that uses the canvas element. -->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>The Matrix Has You</title>
+    </head>
+    <body>
+        <!-- No further elements here; strictly minimalist.
+             But of course you may resize your canvas as needed. -->
+        <canvas id="canvas" width="800" height="800">
+            Sorry, but you need a web browser that supports the
+            <code>canvas</code> element.
+        </canvas>
+        <style type="text/css">
+            canvas { border: 1px solid black; }
+        </style>
+
+        <!-- Let's add jQuery, even if you might not always use it. -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+        <!-- This is where most of your action really will be:
+             rename and edit this file. -->  
+        
+        <script src="gun.js"></script>
+        <script src="bullet.js"></script>
+        <script src="building.js"></script>
+
+        <script type="text/javascript">
+
+            $(window).load(function() {
+
+                var canvas = document.getElementById("canvas"),
+                ctx = canvas.getContext("2d");
+
+                ctx.translate(100,100);
+                sprites.gun.draw(ctx, {flare: 0});
+
+                ctx.translate(0, 100);
+                sprites.bullet.draw(ctx, {traillength: 0.5});
+
+                ctx.translate(400,200);
+                sprites.building.draw(ctx);
+
+            });
+
+        </script>
+        
+    </body>
+</html>
